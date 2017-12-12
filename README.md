@@ -17,7 +17,21 @@
 
 * php yii jobs/add
 
-## 更多
+## 自己的yii2项目怎么改？
+* 修改自己项目composer.json，增加swoole-jobs包，并执行composer update
+```
+    "require": {
+        "php": ">=7.0",
+        "kcloze/swoole-jobs": "*"
+    }
+```
+* 复制该项目swoole-jobs文件到自己项目根目录
+* 复制该项目config/swoole-jobs.php到自己项目配置目录
+* 插入队列：参考commands/JobsController.php代码
+* 参考上面文档启动服务
+
+
+## 更多信息
 * [swoole-jobs](https://github.com/kcloze/swoole-jobs)
 
 
