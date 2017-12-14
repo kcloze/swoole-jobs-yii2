@@ -36,6 +36,7 @@ class JobsController extends Controller
     public function actionIndex($message, $a, $b, $c)
     {
         echo $message . $a . $b . $c . "\n";
+        sleep(5);
 
         return ExitCode::OK;
     }
@@ -53,16 +54,17 @@ class JobsController extends Controller
         }
         //往topic为MyJob的任务增加执行job
         for ($i = 0; $i < 100; $i++) {
-            $job = new JobObject('MyJob', 'Kcloze\Jobs\Jobs\MyJob', 'test1', ['kcloze', time()]);
+            $job = new JobObject('MyJob', 'hello', 'index', ['kcloze', time()]);
 
             $result=$queue->push('MyJob', $job);
             var_dump($result, $queue->len('MyJob'));
         }
         for ($i = 0; $i < 100; $i++) {
             // 根据自定义的 $jobs->load() 方法, 自定义数据格式
-            $job   = new JobObject('MyJob', 'Kcloze\Jobs\Jobs\MyJob', 'test1', ['kcloze', time()]);
+            $job   = new JobObject('MyJob2', 'jobs', 'index', ['kcloze', time(), 2, 'oop']);
             $result=$queue->push('MyJob2', $job);
-            var_dump($result, $queue->len('MyJob'));
+            var_dump($result, $queue->len('MyJob2'));
         }
+        echo 'done' . PHP_EOL;
     }
 }
