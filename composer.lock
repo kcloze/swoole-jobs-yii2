@@ -174,6 +174,129 @@
             "time": "2017-08-22T10:13:04+00:00"
         },
         {
+            "name": "enqueue/amqp-ext",
+            "version": "0.8.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-enqueue/amqp-ext.git",
+                "reference": "7f7f14b81c197faa91fd736dbade59099be924f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-enqueue/amqp-ext/zipball/7f7f14b81c197faa91fd736dbade59099be924f3",
+                "reference": "7f7f14b81c197faa91fd736dbade59099be924f3",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "enqueue/amqp-tools": "^0.8.4@dev",
+                "ext-amqp": "^1.9.3",
+                "php": ">=5.6",
+                "queue-interop/amqp-interop": "^0.7@dev"
+            },
+            "require-dev": {
+                "empi89/php-amqp-stubs": "*@dev",
+                "enqueue/enqueue": "^0.8@dev",
+                "enqueue/null": "^0.8@dev",
+                "enqueue/test": "^0.8@dev",
+                "phpunit/phpunit": "~5.4.0",
+                "queue-interop/queue-spec": "^0.5.3@dev",
+                "symfony/config": "^2.8|^3|^4",
+                "symfony/dependency-injection": "^2.8|^3|^4"
+            },
+            "suggest": {
+                "enqueue/enqueue": "If you'd like to use advanced features like Client abstract layer or Symfony integration features"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Enqueue\\AmqpExt\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Message Queue Amqp Transport",
+            "homepage": "https://github.com/php-enqueue/enqueue-dev",
+            "keywords": [
+                "AMQP",
+                "messaging",
+                "queue"
+            ],
+            "time": "2017-11-21T13:29:21+00:00"
+        },
+        {
+            "name": "enqueue/amqp-tools",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-enqueue/amqp-tools.git",
+                "reference": "4fd6c7ae8d2095bf0ac1b026ed8affa694a49c6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-enqueue/amqp-tools/zipball/4fd6c7ae8d2095bf0ac1b026ed8affa694a49c6a",
+                "reference": "4fd6c7ae8d2095bf0ac1b026ed8affa694a49c6a",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.6",
+                "queue-interop/amqp-interop": "^0.7@dev",
+                "queue-interop/queue-interop": "^0.6@dev"
+            },
+            "require-dev": {
+                "enqueue/null": "^0.8@dev",
+                "enqueue/test": "^0.8@dev",
+                "phpunit/phpunit": "~5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Enqueue\\AmqpTools\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Message Queue Amqp Tools",
+            "homepage": "https://github.com/php-enqueue/enqueue-dev",
+            "keywords": [
+                "AMQP",
+                "messaging",
+                "queue"
+            ],
+            "time": "2017-11-15T13:36:43+00:00"
+        },
+        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.9.3",
             "source": {
@@ -232,12 +355,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kcloze/swoole-jobs.git",
-                "reference": "23fa125d7ae06ee738a65e2568bc8ecd9b14296a"
+                "reference": "c1e8b95676e91cfc668b824c81a24f0c5d2d7f9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kcloze/swoole-jobs/zipball/23fa125d7ae06ee738a65e2568bc8ecd9b14296a",
-                "reference": "23fa125d7ae06ee738a65e2568bc8ecd9b14296a",
+                "url": "https://api.github.com/repos/kcloze/swoole-jobs/zipball/c1e8b95676e91cfc668b824c81a24f0c5d2d7f9f",
+                "reference": "c1e8b95676e91cfc668b824c81a24f0c5d2d7f9f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -247,6 +370,7 @@
                 ]
             },
             "require": {
+                "enqueue/amqp-ext": "0.8.9",
                 "ext-redis": "*",
                 "ext-swoole": ">=1.8.9",
                 "php": ">=7.0"
@@ -278,7 +402,100 @@
                 "swoole",
                 "调度"
             ],
-            "time": "2017-12-11T03:50:13+00:00"
+            "time": "2017-12-14T07:24:50+00:00"
+        },
+        {
+            "name": "queue-interop/amqp-interop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/queue-interop/amqp-interop.git",
+                "reference": "56ce2227e6acbcdc1e81a7e3d858dd78366011e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/queue-interop/amqp-interop/zipball/56ce2227e6acbcdc1e81a7e3d858dd78366011e5",
+                "reference": "56ce2227e6acbcdc1e81a7e3d858dd78366011e5",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.5",
+                "queue-interop/queue-interop": "^0.6@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Amqp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2017-11-17T10:43:53+00:00"
+        },
+        {
+            "name": "queue-interop/queue-interop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/queue-interop/queue-interop.git",
+                "reference": "5a7d9ab623aa753c6be15c8f404055cb4720ecec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/queue-interop/queue-interop/zipball/5a7d9ab623aa753c6be15c8f404055cb4720ecec",
+                "reference": "5a7d9ab623aa753c6be15c8f404055cb4720ecec",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Queue\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Promoting the interoperability of MQs objects. Based on Java JMS",
+            "homepage": "https://github.com/queue-interop/queue-interop",
+            "keywords": [
+                "MQ",
+                "jms",
+                "message queue",
+                "messaging",
+                "queue"
+            ],
+            "time": "2017-12-05T08:55:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -702,12 +919,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/base.git",
-                "reference": "5aeb2bc02819c89fa1538c2a413e245a421dbcf4"
+                "reference": "c3fcea61525e62361ecc45aea1837f225ba73b4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/base/zipball/5aeb2bc02819c89fa1538c2a413e245a421dbcf4",
-                "reference": "5aeb2bc02819c89fa1538c2a413e245a421dbcf4",
+                "url": "https://api.github.com/repos/Codeception/base/zipball/c3fcea61525e62361ecc45aea1837f225ba73b4f",
+                "reference": "c3fcea61525e62361ecc45aea1837f225ba73b4f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -723,18 +940,17 @@
                 "guzzlehttp/psr7": "~1.0",
                 "php": ">=5.4.0 <8.0",
                 "phpunit/php-code-coverage": ">=2.2.4 <6.0",
-                "phpunit/phpunit": ">4.8.20 <7.0",
+                "phpunit/phpunit": ">=4.8.28 <5.0.0 || >=5.6.3 <7.0",
                 "phpunit/phpunit-mock-objects": ">2.3 <5.0",
                 "sebastian/comparator": ">1.1 <3.0",
                 "sebastian/diff": ">=1.4 <3.0",
-                "stecman/symfony-console-completion": "^0.7.0",
-                "symfony/browser-kit": ">=2.7 <4.0",
-                "symfony/console": ">=2.7 <4.0",
-                "symfony/css-selector": ">=2.7 <4.0",
-                "symfony/dom-crawler": ">=2.7.5 <4.0",
-                "symfony/event-dispatcher": ">=2.7 <4.0",
-                "symfony/finder": ">=2.7 <4.0",
-                "symfony/yaml": ">=2.7 <4.0"
+                "symfony/browser-kit": ">=2.7 <5.0",
+                "symfony/console": ">=2.7 <5.0",
+                "symfony/css-selector": ">=2.7 <5.0",
+                "symfony/dom-crawler": ">=2.7 <5.0",
+                "symfony/event-dispatcher": ">=2.7 <5.0",
+                "symfony/finder": ">=2.7 <5.0",
+                "symfony/yaml": ">=2.7 <5.0"
             },
             "require-dev": {
                 "codeception/specify": "~0.3",
@@ -747,16 +963,19 @@
                 "php-amqplib/php-amqplib": "~2.4",
                 "predis/predis": "^1.0",
                 "squizlabs/php_codesniffer": "~2.0",
-                "symfony/process": ">=2.7 <4.0",
+                "symfony/process": ">=2.7 <5.0",
                 "vlucas/phpdotenv": "^2.4.0"
             },
             "suggest": {
+                "aws/aws-sdk-php": "For using AWS Auth in REST module and Queue module",
+                "codeception/phpbuiltinserver": "Start and stop PHP built-in web server for your tests",
                 "codeception/specify": "BDD-style code blocks",
                 "codeception/verify": "BDD-style assertions",
                 "flow/jsonpath": "For using JSONPath in REST module",
                 "league/factory-muffin": "For DataFactory module",
                 "league/factory-muffin-faker": "For Faker support in DataFactory module",
                 "phpseclib/phpseclib": "for SFTP option in FTP Module",
+                "stecman/symfony-console-completion": "For BASH autocompletion",
                 "symfony/phpunit-bridge": "For phpunit-bridge support"
             },
             "bin": [
@@ -792,7 +1011,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-09-29T00:03:44+00:00"
+            "time": "2017-12-12T04:54:15+00:00"
         },
         {
             "name": "codeception/specify",
@@ -946,12 +1165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "07201f7e54015f78b42eda26c7430212fa141928"
+                "reference": "e8fce01afa54bc2983d59e1eb4617f8504dc9178"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/07201f7e54015f78b42eda26c7430212fa141928",
-                "reference": "07201f7e54015f78b42eda26c7430212fa141928",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e8fce01afa54bc2983d59e1eb4617f8504dc9178",
+                "reference": "e8fce01afa54bc2983d59e1eb4617f8504dc9178",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -994,7 +1213,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-12-07T06:17:24+00:00"
+            "time": "2017-12-14T08:11:52+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -2744,12 +2963,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "179522b5f0b5e6d00bb60f38a4d6b29962e4b61b"
+                "reference": "f761b4ecdd23a451c2cae6fba704d8b207cbb045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/179522b5f0b5e6d00bb60f38a4d6b29962e4b61b",
-                "reference": "179522b5f0b5e6d00bb60f38a4d6b29962e4b61b",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/f761b4ecdd23a451c2cae6fba704d8b207cbb045",
+                "reference": "f761b4ecdd23a451c2cae6fba704d8b207cbb045",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2799,7 +3018,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:20:24+00:00"
+            "time": "2017-12-11T22:06:16+00:00"
         },
         {
             "name": "symfony/console",
@@ -2807,12 +3026,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "8ef143bcb0986ec4fdbee6ce42cb55511ce2c447"
+                "reference": "231cf982dbb5e91070dda505240a528fec307eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8ef143bcb0986ec4fdbee6ce42cb55511ce2c447",
-                "reference": "8ef143bcb0986ec4fdbee6ce42cb55511ce2c447",
+                "url": "https://api.github.com/repos/symfony/console/zipball/231cf982dbb5e91070dda505240a528fec307eb7",
+                "reference": "231cf982dbb5e91070dda505240a528fec307eb7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2874,7 +3093,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-08T15:24:53+00:00"
+            "time": "2017-12-12T08:58:07+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3254,12 +3473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "5009c3ee3388332f667c9ce37cb1712656f5d734"
+                "reference": "afe0cd38486505c9703707707d91450cfc1bd536"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/5009c3ee3388332f667c9ce37cb1712656f5d734",
-                "reference": "5009c3ee3388332f667c9ce37cb1712656f5d734",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/afe0cd38486505c9703707707d91450cfc1bd536",
+                "reference": "afe0cd38486505c9703707707d91450cfc1bd536",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3310,7 +3529,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-08T15:26:26+00:00"
+            "time": "2017-12-11T20:38:23+00:00"
         },
         {
             "name": "theseer/tokenizer",

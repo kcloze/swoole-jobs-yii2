@@ -2,10 +2,9 @@
 
 return $config = [
     //log目录
-    'logPath'           => __DIR__ . '/../runtime/log/swoole-jobs',
-    'pidPath'           => __DIR__ . '/../runtime/log/swoole-jobs',
-    'sleep'             => 3, //每次topic消费完之后停留毫秒数，线上环境不能过大
-    'processName'       => ':swooleTopicQueue', // 设置进程名, 方便管理, 默认值 swooleTopicQueue
+    'logPath'           => __DIR__ . '/../runtime/logs/swoole-jobs',
+    'pidPath'           => __DIR__ . '/../runtime/logs/swoole-jobs',
+    'processName'       => ':swooleTopicQueueYii2', // 设置进程名, 方便管理, 默认值 swooleTopicQueue
     //job任务相关
     'job'         => [
         'topics'  => [

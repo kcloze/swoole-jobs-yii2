@@ -18,6 +18,7 @@ namespace app\commands;
  * @since 2.0
  */
 
+use Kcloze\Jobs\JobObject;
 use Kcloze\Jobs\Queue\Queue;
 use yii\console\Controller;
 use yii\console\ExitCode;
@@ -52,24 +53,16 @@ class JobsController extends Controller
         }
         //往topic为MyJob的任务增加执行job
         for ($i = 0; $i < 100; $i++) {
-            // 根据自定义的 $jobs->load() 方法, 自定义数据格式
-            $data = [
-                'topic'      => 'MyJob',
-                'jobClass'   => 'hello',
-                'jobMethod'  => 'index',
-                'jobParams'  => ['kcloze'],
-            ];
-            $queue->push($data['topic'], $data);
+            $job = new JobObject('MyJob', 'Kcloze\Jobs\Jobs\MyJob', 'test1', ['kcloze', time()]);
+
+            $result=$queue->push('MyJob', $job);
+            var_dump($result, $queue->len('MyJob'));
         }
         for ($i = 0; $i < 100; $i++) {
             // 根据自定义的 $jobs->load() 方法, 自定义数据格式
-            $data = [
-                'topic'      => 'MyJob2',
-                'jobClass'   => 'jobs',
-                'jobMethod'  => 'index',
-                'jobParams'  => ['kcloze', time(), 'sdf', '124'],
-            ];
-            $queue->push($data['topic'], $data);
+            $job   = new JobObject('MyJob', 'Kcloze\Jobs\Jobs\MyJob', 'test1', ['kcloze', time()]);
+            $result=$queue->push('MyJob2', $job);
+            var_dump($result, $queue->len('MyJob'));
         }
     }
 }
