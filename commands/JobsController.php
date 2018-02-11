@@ -19,6 +19,8 @@ namespace app\commands;
  */
 
 use Kcloze\Jobs\JobObject;
+use Kcloze\Jobs\Logs;
+use Kcloze\Jobs\Queue\BaseTopicQueue;
 use Kcloze\Jobs\Queue\Queue;
 use yii\console\Controller;
 use yii\console\ExitCode;
@@ -43,28 +45,31 @@ class JobsController extends Controller
 
     public function actionAdd()
     {
-        $config =[
-            'type'       => 'redis',
-            'host'       => '127.0.0.1',
-            'port'       => 6379,
-        ];
-        $queue=Queue::getQueue($config);
-        if (!$queue) {
-            die('queue object is null' . PHP_EOL);
-        }
         //往topic为MyJob的任务增加执行job
         for ($i = 0; $i < 100; $i++) {
-            $job = new JobObject('MyJob', 'hello', 'index', ['kcloze', time()]);
+            $result=$this->addOneJob('MyJob', 'hello', 'index', [time()]);
+            var_dump($result);
+        }
 
-            $result=$queue->push('MyJob', $job);
-            var_dump($result, $queue->len('MyJob'));
-        }
-        for ($i = 0; $i < 100; $i++) {
-            // 根据自定义的 $jobs->load() 方法, 自定义数据格式
-            $job   = new JobObject('MyJob2', 'jobs', 'index', ['kcloze', time(), 2, 'oop']);
-            $result=$queue->push('MyJob2', $job);
-            var_dump($result, $queue->len('MyJob2'));
-        }
         echo 'done' . PHP_EOL;
+    }
+
+    //可以把这个方法移到service或者通用类库里面
+    public function addOneJob($jobName, $jobClass, $jobMethod = '', $jobParams = [], $jobExt = [])
+    {
+        $config   = require APP_PATH . '/config/swoole-jobs.php';
+        $logger   = Logs::getLogger($config['logPath'] ?? '', $config['logSaveFileApp'] ?? '');
+        //exit;
+        $queue    = Queue::getQueue($config['job']['queue'], $logger);
+        //设置工作进程参数
+        $queue->setTopics($config['job']['topics']);
+
+        $jobExtras['delay']    = isset($jobExt['delay']) ? $jobExt['delay'] : 0;
+        $jobExtras['priority'] = isset($jobExt['priority']) ? $jobExt['priority'] : BaseTopicQueue::HIGH_LEVEL_1;
+
+        $job      = new JobObject($jobName, $jobClass, $jobMethod, $jobParams, $jobExtras);
+        $result   = $queue->push($jobName, $job);
+
+        return $result;
     }
 }

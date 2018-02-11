@@ -13,10 +13,12 @@ return $config = [
             ['name'=> 'MyJob3', 'workerMinNum'=>1, 'workerMaxNum'=>1],
         ],
         'queue'   => [
-            'type' => 'redis',
-            'host' => '127.0.0.1',
-            'port' => 6379,
+            'class'    => '\Kcloze\Jobs\Queue\RedisTopicQueue',
+            'host'     => '127.0.0.1',
+            'port'     => 6379,
+            //'password'=> 'pwd',
         ],
+
    ],
    //框架类型及装载类
    'framework' => [
