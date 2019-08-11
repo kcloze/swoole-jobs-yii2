@@ -11,7 +11,7 @@
 
 ## 管理服务
 
-* php swoole-jobs start|stop|exit
+* php ./swoole-jobs.php start|stop|exit
 
 ## 增加测试任务到队列
 

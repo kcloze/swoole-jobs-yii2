@@ -14,7 +14,7 @@ return $config = [
         ],
         'queue'   => [
             'class'    => '\Kcloze\Jobs\Queue\RedisTopicQueue',
-            'host'     => '127.0.0.1',
+            'host'     => '192.168.3.9',
             'port'     => 6379,
             //'password'=> 'pwd',
         ],

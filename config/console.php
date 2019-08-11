@@ -17,6 +17,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'log' => [
+            'class' => 'yii\log\Logger',
             'targets' => [
                 [
                     'class'  => 'yii\log\FileTarget',

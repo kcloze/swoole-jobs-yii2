@@ -15,20 +15,12 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.13",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "yiisoft/yii2": "^2.0.14",
+        "yiisoft/yii2-bootstrap": "^2.0.0",
+        "yiisoft/yii2-swiftmailer": "^2.0.0",
         "kcloze/swoole-jobs": "*"
     },
-    "require-dev": {
-        "yiisoft/yii2-debug": "~2.0.0",
-        "yiisoft/yii2-gii": "~2.0.0",
-        "yiisoft/yii2-faker": "~2.0.0",
-
-        "codeception/base": "^2.2.3",
-        "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3"
-    },
+   
     "config": {
         "process-timeout": 1800,
         "fxp-asset": {
@@ -60,10 +52,12 @@
             ]
         }
     },
-    "repositories": [
-        {
+    "repositories":{
+
+        "packagist": {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://mirrors.aliyun.com/composer"
         }
-    ]
+    }
+    
 }
